@@ -2,14 +2,21 @@ from multiprocessing import Pool
 import itertools
 
 def chunks(l, n):
+  """ Return n lists of approximately equal size from l.
+  """
   c = []
-  for i in range(0, len(l), n):
-    c.append(l[i:i+n])
+  m = int(len(l) / n)
+  for i in range(0, n - 1):
+    c.append(l[i*m:i*m + m])
+  c.append(l[n*m - m:])
   return c
 
 def mappy(f, lst, p):
+  """ Split lst into p chunks and then do an async map with p processes.
+  """
   pool = Pool(processes = p)
   partitions = chunks(lst, p)
+
   results = []
   for partition in partitions:
     rlist = []
@@ -23,4 +30,14 @@ def mappy(f, lst, p):
 def fun(x):
   return x*x
 
-print mappy(fun, range(20), 4)
+def word_count(string):
+  return len(string.split(' '))
+
+if __name__ == '__main__':
+  print mappy(fun, range(43), 4)
+
+  lorem_text = ["lorem ipsum dolar sit amet, consectetur",
+		"adipiscing elit, sed do eiusmod tempor",
+		"incididunt ut labore et dolare magna aliqua."]
+  print reduce(lambda x,y: x+y, mappy(word_count, lorem_text, 3))
+
