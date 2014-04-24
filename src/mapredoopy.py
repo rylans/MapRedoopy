@@ -34,4 +34,4 @@ def word_count(string):
   return len(string.split(' '))
 
 if __name__ == '__main__':
-  print mappy(fun, range(43), 4)
+  print "'from mapredoopy import mappy' and then 'mappy(f, list, processes)'"
