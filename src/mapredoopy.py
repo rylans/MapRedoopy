@@ -35,9 +35,3 @@ def word_count(string):
 
 if __name__ == '__main__':
   print mappy(fun, range(43), 4)
-
-  lorem_text = ["lorem ipsum dolar sit amet, consectetur",
-		"adipiscing elit, sed do eiusmod tempor",
-		"incididunt ut labore et dolare magna aliqua."]
-  print reduce(lambda x,y: x+y, mappy(word_count, lorem_text, 3))
-
