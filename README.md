@@ -1,7 +1,7 @@
 MapRedoopy
 ==========
 
-A wrapper on top of python's bult-in map function which first splits the input array into n parts, then spawns n processes in order to map asynchronously.
+A wrapper on top of Python's built-in map function which first splits the input array into n parts, then spawns n processes in order to map asynchronously.
 
 ## Usage
 
@@ -18,7 +18,7 @@ result = mappy(f, list, 4) #spawns four processes
 
 ## Purpose
 
-Why did I write this code? For fun and practice
+Why did I write this code? For fun and practice.
 
 ## Todo list
 
