@@ -22,6 +22,5 @@ Why did I write this code? For fun and practice.
 
 ## Todo list
 
-* Write benchmark tests to show that async map is faster than sync map
 * Make an async implementation of reduce
 * Use (key, value) pairs as output
